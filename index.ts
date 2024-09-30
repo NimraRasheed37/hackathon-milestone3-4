@@ -45,21 +45,11 @@ function addEducationSection() {
 function generateResume(event:any) {
   event.preventDefault(); // Prevent the default form submission
 
-  //get the image data from user input and display in cv
-  const imageInput = document.getElementById('image') as HTMLInputElement;
-const profilePhoto = document.getElementById('profile-photo') as HTMLImageElement;
-
-if (imageInput.files && imageInput.files[0]) {
-  const reader = new FileReader();
-  reader.onload = function (e) {
-    profilePhoto.src = e.target?.result as string;
-  };
-  reader.readAsDataURL(imageInput.files[0]);
-}
-
-
-const generatedResume = document.getElementById('generated-resume') as HTMLFormElement;
+  
   // Get the values from the personal information section
+  const container = document.querySelector('.container') as HTMLElement;
+  const generatedResume = document.getElementById('generated-resume') as HTMLFormElement;
+  const resumeContent = document.getElementById('resume-content') as HTMLFormElement;
   const fullName = (document.getElementById('full-name') as HTMLInputElement).value;
   const email = (document.getElementById('email') as HTMLInputElement).value;
   const phone = (document.getElementById('phone') as HTMLInputElement).value;
@@ -70,6 +60,21 @@ const generatedResume = document.getElementById('generated-resume') as HTMLFormE
   (document.getElementById('phone-no') as HTMLElement).textContent = phone;
   (document.getElementById('address') as HTMLElement).textContent = address;
   
+  //hide main container when submit button is clicked and show generated resume
+document.querySelector('.container')?.classList.add('hidden');
+generatedResume.classList.remove('hidden');
+  
+  //get the image data from user input and display in cv
+const imageInput = document.getElementById('image') as HTMLInputElement;
+const profilePhoto = document.getElementById('profile-photo') as HTMLImageElement;
+
+if (imageInput.files && imageInput.files[0]) {
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    profilePhoto.src = e.target?.result as string;
+  };
+  reader.readAsDataURL(imageInput.files[0]);
+}
 
   // Get the education fields and populate the education section
   const educationSections = document.querySelectorAll('.education');
@@ -86,10 +91,10 @@ const generatedResume = document.getElementById('generated-resume') as HTMLFormE
       <p><strong>Degree:</strong> ${degree}</p>
       <p><strong>Institute:</strong> ${institute}</p>
       <p><strong>Year:</strong> ${year}</p>
-      <p><strong>Grade:</strong> ${grade}</p>
+      <p><strong>Grade/CGPA:</strong> ${grade}</p>
       <hr />
     `;
-    
+  
   });
  
   // Get the experience fields and populate the experience section
@@ -130,8 +135,11 @@ const generatedResume = document.getElementById('generated-resume') as HTMLFormE
 // Add an event listener to the form's submit button to generate the resume
 document.getElementById('submit')?.addEventListener('click', generateResume);
 
+
+
 // Optional: Edit resume functionality to hide the resume and show the form again
 document.getElementById('edit-resume')?.addEventListener('click', function () {
+  document.querySelector('.container')?.classList.remove('hidden');
   document.getElementById('generated-resume')?.classList.add('hidden');
   window.scrollTo(0, 0); // Scroll to the top of the page
 });

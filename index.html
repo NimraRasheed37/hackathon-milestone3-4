@@ -10,7 +10,7 @@
     <main class="container">
       <div class="heading">
         <h1>Resume Generator Form</h1>
-        <p>Please fill the form to generate your resume/CV</p>
+        <p>Fill out the given form to generate your resume/CV</p>
       </div>
 
       <form action="#" id="main-form">
@@ -47,7 +47,7 @@
             <input type="number" class="year" pattern="^\d{4}-\d{4}$" required/>
             <br />
             <label for="grade">Grade/CGPA: </label>
-            <input type="text" pattern="[A-Za-z0-9]+" class="grade" required />
+            <input type="text" pattern="[A-Za-z0-9.]+" class="grade" required />
           </div>
         </section>
 
@@ -91,6 +91,7 @@
         <button id="submit" type="submit">Generate Resume</button>
         <br />
       </form>
+    </main>
 
       <!-- Resume Display -->
       <div id="generated-resume" class="hidden">
@@ -121,12 +122,12 @@
           </section>
         </div>
 
-        <button id="edit-resume">Edit Resume</button>
+        <button id="edit-resume">Edit Resume</button><br>
         <button id="download-pdf">Download PDF</button>
       </div>
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
       <script src="index.js"></script>
-    </main>
+    
   </body>
 </html>

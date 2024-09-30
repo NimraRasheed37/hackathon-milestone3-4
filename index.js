@@ -33,8 +33,24 @@ function addExperienceSection() {
 (_b = document.getElementById('add-more-experience')) === null || _b === void 0 ? void 0 : _b.addEventListener('click', addExperienceSection);
 // Function to generate the resume when the form is submitted
 function generateResume(event) {
-    var _a;
+    var _a, _b;
     event.preventDefault(); // Prevent the default form submission
+    // Get the values from the personal information section
+    var container = document.querySelector('.container');
+    var generatedResume = document.getElementById('generated-resume');
+    var resumeContent = document.getElementById('resume-content');
+    var fullName = document.getElementById('full-name').value;
+    var email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value;
+    var address = document.getElementById('address-text').value;
+    // Display the personal information in the generated resume
+    document.getElementById('fullName').textContent = fullName;
+    document.getElementById('email-address').textContent = email;
+    document.getElementById('phone-no').textContent = phone;
+    document.getElementById('address').textContent = address;
+    //hide main container when submit button is clicked and show generated resume
+    (_a = document.querySelector('.container')) === null || _a === void 0 ? void 0 : _a.classList.add('hidden');
+    generatedResume.classList.remove('hidden');
     //get the image data from user input and display in cv
     var imageInput = document.getElementById('image');
     var profilePhoto = document.getElementById('profile-photo');
@@ -46,17 +62,6 @@ function generateResume(event) {
         };
         reader.readAsDataURL(imageInput.files[0]);
     }
-    var generatedResume = document.getElementById('generated-resume');
-    // Get the values from the personal information section
-    var fullName = document.getElementById('full-name').value;
-    var email = document.getElementById('email').value;
-    var phone = document.getElementById('phone').value;
-    var address = document.getElementById('address-text').value;
-    // Display the personal information in the generated resume
-    document.getElementById('fullName').textContent = fullName;
-    document.getElementById('email-address').textContent = email;
-    document.getElementById('phone-no').textContent = phone;
-    document.getElementById('address').textContent = address;
     // Get the education fields and populate the education section
     var educationSections = document.querySelectorAll('.education');
     var educationData = document.getElementById('education-data');
@@ -66,7 +71,7 @@ function generateResume(event) {
         var institute = section.querySelector('.institute').value;
         var year = section.querySelector('.year').value;
         var grade = section.querySelector('.grade').value;
-        educationData.innerHTML += "\n      <p><strong>Degree:</strong> ".concat(degree, "</p>\n      <p><strong>Institute:</strong> ").concat(institute, "</p>\n      <p><strong>Year:</strong> ").concat(year, "</p>\n      <p><strong>Grade:</strong> ").concat(grade, "</p>\n      <hr />\n    ");
+        educationData.innerHTML += "\n      <p><strong>Degree:</strong> ".concat(degree, "</p>\n      <p><strong>Institute:</strong> ").concat(institute, "</p>\n      <p><strong>Year:</strong> ").concat(year, "</p>\n      <p><strong>Grade/CGPA:</strong> ").concat(grade, "</p>\n      <hr />\n    ");
     });
     // Get the experience fields and populate the experience section
     var experienceSections = document.querySelectorAll('.experience');
@@ -90,14 +95,15 @@ function generateResume(event) {
         }
     });
     // Show the generated resume section
-    (_a = document.getElementById('generated-resume')) === null || _a === void 0 ? void 0 : _a.classList.remove('hidden');
+    (_b = document.getElementById('generated-resume')) === null || _b === void 0 ? void 0 : _b.classList.remove('hidden');
 }
 // Add an event listener to the form's submit button to generate the resume
 (_c = document.getElementById('submit')) === null || _c === void 0 ? void 0 : _c.addEventListener('click', generateResume);
 // Optional: Edit resume functionality to hide the resume and show the form again
 (_d = document.getElementById('edit-resume')) === null || _d === void 0 ? void 0 : _d.addEventListener('click', function () {
-    var _a;
-    (_a = document.getElementById('generated-resume')) === null || _a === void 0 ? void 0 : _a.classList.add('hidden');
+    var _a, _b;
+    (_a = document.querySelector('.container')) === null || _a === void 0 ? void 0 : _a.classList.remove('hidden');
+    (_b = document.getElementById('generated-resume')) === null || _b === void 0 ? void 0 : _b.classList.add('hidden');
     window.scrollTo(0, 0); // Scroll to the top of the page
 });
 //function to download the resume as PDF file

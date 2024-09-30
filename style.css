@@ -15,7 +15,7 @@ body {
 }
 #main-form {
   padding: 8px;
-  width: 90%;
+  width: 70%;
   margin: 0 auto;
   min-height: 100vh;
   background-color: #ffe9e7;
@@ -132,7 +132,7 @@ input {
 }
 /*Completed Resume Display*/
 #generated-resume {
-  width: 80%;
+  width: 60%;
   height: auto;
   margin: 10px auto;
   text-align: center;
@@ -190,7 +190,7 @@ input {
 #edit-resume,
 #download-pdf {
   padding: 8px 16px;
-  margin: 1% auto;
+  margin: 2% auto;
   background-color: #e44f57;
   cursor: pointer;
   border: none;
@@ -213,10 +213,12 @@ hr {
   text-align: left;
   margin-left: 8%;
   margin-top: 1%;
+  font-size: 1rem;
 }
 #education-data h2,
 #experience-data h2, #skills-data h2 {
-  padding: 8px;
+  padding: 4px;
+  font-size: 1rem;
   background-color: #f6b5b8;
 }
 #resume-content {
@@ -224,7 +226,7 @@ hr {
 }
 
 
-@media (max-width: 540px) {
+@media (max-width: 740px) {
   #main-form{
     width: 95%;
   }
