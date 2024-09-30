@@ -228,7 +228,7 @@ input {
   color: white;
 }
 hr {
-  margin: 2%;
+  margin: 10px 0;
   border: dashed 1px #450f12;
 }
 
@@ -239,7 +239,7 @@ hr {
   margin-top: 1%;
 }
 #education-data h2,
-#experience-data h2 {
+#experience-data h2, #skills-data h2 {
   padding: 8px;
   background-color: #f6b5b8;
 }
@@ -270,4 +270,22 @@ hr {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto auto;
   }
+  #education-data h2,
+  #experience-data h2, #skills-data h2 {
+    padding: 4px;
+    font-size: 1rem;
+  }
+  #education-data p,
+#experience-data p, p {
+ margin-left: 4%;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+#profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 }
