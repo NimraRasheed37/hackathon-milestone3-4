@@ -176,7 +176,6 @@ input {
   color: black;
   padding: 8px;
   text-align: center;
-  border-radius: 8px;
   margin: 1%;
   height: auto;
 }
@@ -187,12 +186,6 @@ input {
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-#personal-data {
-  border-radius: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
 }
 #profile-photo:hover {
   transform: scale(1.05);
@@ -254,3 +247,27 @@ hr {
   border: 1px solid #450f12;
 }
 
+
+@media (max-width: 540px) {
+  #main-form{
+    width: 95%;
+  }
+  label{
+    width: 24%;
+    padding: 8px 10px;
+  }
+  section{
+    margin: 20px 0;
+  }
+  #generated-resume{
+    width: 90%;
+  }
+  #personal-data{
+    grid-template-columns: 1fr;
+
+  }
+  #skills-list{
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+}

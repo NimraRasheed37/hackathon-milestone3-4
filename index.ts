@@ -2,8 +2,6 @@
 function addEducationSection() {
     // Get the area where all education sections are stored
     const educationSections = document.getElementById('education-sections');
-    
-    // Find the first education section and copy (clone) it
     const firstEducation = document.querySelector('.education') as HTMLElement;
     const newEducation = firstEducation.cloneNode(true) as HTMLElement;
   
@@ -89,6 +87,7 @@ const generatedResume = document.getElementById('generated-resume') as HTMLFormE
       <p><strong>Grade:</strong> ${grade}</p>
       <hr />
     `;
+    
   });
 
   // Get the experience fields and populate the experience section
