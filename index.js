@@ -3,7 +3,6 @@ var _a, _b, _c, _d, _e, _f;
 function addEducationSection() {
     // Get the area where all education sections are stored
     var educationSections = document.getElementById('education-sections');
-    // Find the first education section and copy (clone) it
     var firstEducation = document.querySelector('.education');
     var newEducation = firstEducation.cloneNode(true);
     // Clear the input fields in the new education section
@@ -32,17 +31,6 @@ function addExperienceSection() {
 // Add click events to the buttons to trigger the functions when clicked
 (_a = document.getElementById('add-more-education')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', addEducationSection);
 (_b = document.getElementById('add-more-experience')) === null || _b === void 0 ? void 0 : _b.addEventListener('click', addExperienceSection);
-// Function to add new skills in the skills section by clicking on + button
-function addTextInput(event) {
-    event.preventDefault(); // Prevent form submission or page refresh
-    var container = document.getElementById('inputBox');
-    var input = document.createElement('input');
-    input.type = 'text';
-    input.className = 'skills-input'; // Applying the same class as the existing inputs
-    var lineBreak = document.createElement('br');
-    container === null || container === void 0 ? void 0 : container.appendChild(input);
-    container === null || container === void 0 ? void 0 : container.appendChild(lineBreak);
-}
 // Function to generate the resume when the form is submitted
 function generateResume(event) {
     var _a;

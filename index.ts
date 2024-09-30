@@ -39,19 +39,6 @@ function addEducationSection() {
   document.getElementById('add-more-experience')?.addEventListener('click', addExperienceSection);
   
 
-// Function to add new skills in the skills section by clicking on + button
-function addTextInput(event: Event) {
-  event.preventDefault(); // Prevent form submission or page refresh
-  
-  const container = document.getElementById('inputBox');
-  const input = document.createElement('input');
-  input.type = 'text';
-  input.className = 'skills-input'; // Applying the same class as the existing inputs
-  
-  const lineBreak = document.createElement('br');
-  container?.appendChild(input);
-  container?.appendChild(lineBreak);
-}
 // Function to generate the resume when the form is submitted
 function generateResume(event:any) {
   event.preventDefault(); // Prevent the default form submission
