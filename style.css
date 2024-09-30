@@ -1,0 +1,251 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #fba5a3;
+  color: rgb(41, 5, 6);
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+}
+.heading {
+  margin: 1rem auto;
+  text-align: center;
+  width: 90%;
+}
+#main-form {
+  padding: 8px;
+  width: 80%;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: #ffe9e7;
+  text-align: left;
+  border-radius: 8px;
+  box-shadow: 2px 4px 10px #eb5d63;
+}
+section {
+  border: 1px solid transparent;
+  margin: 4px;
+  box-shadow: 2px 2px 10px #eb5d63;
+}
+label {
+  display: inline-block;
+  text-align: left;
+  width: 30%;
+  padding: 8px 16px;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: "Times New Roman", Times, serif;
+}
+hr {
+  margin: 8px 0;
+  border: 1px solid rgb(83, 2, 2);
+}
+h3 {
+  padding: 4px;
+  text-align: center;
+  text-decoration: underline;
+  font-family: Georgia, "Times New Roman", serif;
+}
+.skills-input {
+  display: flex;
+  width: 30%;
+}
+input {
+  padding: 6px 40px;
+  border: 1px solid #f0b9bc;
+  width: 55%;
+  margin: 8px 0;
+  margin-left: 2rem;
+  text-align: center;
+  border-radius: 2px;
+  font-family: Georgia;
+  font-size: 14px;
+}
+#address-text {
+  height: 4rem;
+}
+/* Education and Experience Section Borders */
+.education,
+.experience {
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px #eb5d63;
+}
+
+.add-more {
+  display: block;
+  margin: 8px auto;
+  padding: 8px 12px;
+  background-color: #eb5d63;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.add-more:hover {
+  background-color: #e9575e;
+  font-weight: bold;
+  font-style: italic;
+}
+#skills-grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 16px;
+  margin: 16px auto;
+  background-color: #ffe9e7;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.skills-input {
+  width: 80%;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #f0b9bc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+#inputBox .skills-input {
+  margin-top: 10px;
+}
+
+.skills-input:hover {
+  border-color: #e44f57;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+.add-skills {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: #eb5d63;
+  color: white;
+  border: 1px solid transparent;
+  cursor: pointer;
+  margin: 8px auto;
+}
+.add-skills:hover {
+  box-shadow: 2px 2px 10px #eb5d63;
+  border: 1px solid #e44f57;
+  font-size: 16px;
+}
+
+#submit {
+  display: block;
+  margin: 2rem auto;
+  padding: 10px 64px;
+  border: 2px solid #e44f57;
+  background-color: #fba5a3;
+  cursor: pointer;
+  color: rgb(31, 1, 1);
+  margin-bottom: 2rem;
+}
+#submit:hover {
+  background-color: #e44f57;
+  box-shadow: 2px 2px 10px black;
+}
+/*Completed Resume Display*/
+#generated-resume {
+  width: 80%;
+  height: auto;
+  margin: 10px auto;
+  text-align: center;
+  background-color: #ffe9e7;
+  border: solid 1px #e44f57;
+  box-shadow: 2px 2px 10px #eb5d63;
+  border-radius: 16px;
+}
+#personal-data {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  background: #ffe9e7;
+  color: black;
+  padding: 8px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 1%;
+  height: auto;
+}
+
+#profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+#personal-data {
+  border-radius: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+#profile-photo:hover {
+  transform: scale(1.05);
+}
+#data-grid h1 {
+  text-align: center;
+  font-size: 1.5rem;
+}
+#data-grid p {
+  text-align: center;
+  font-size: 1rem;
+  margin: 0 auto;
+}
+
+#skills-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 1rem;
+  align-items: center;
+  margin: 1rem;
+  padding: 8px;
+  background-color: #fba5a3;
+  font-weight: bold;
+}
+#edit-resume,
+#download-pdf {
+  padding: 8px 16px;
+  margin: 1% auto;
+  background-color: #e44f57;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+}
+#edit-resume:hover,
+#download-pdf:hover {
+  opacity: 0.5 ease-in-out;
+  box-shadow: 2px 2px 8px #fba5a3;
+  color: white;
+}
+hr {
+  margin: 2%;
+  border: dashed 1px #450f12;
+}
+
+#education-data p,
+#experience-data p {
+  text-align: left;
+  margin-left: 8%;
+  margin-top: 1%;
+}
+#education-data h2,
+#experience-data h2 {
+  padding: 8px;
+  background-color: #f6b5b8;
+}
+#resume-content {
+  border: 1px solid #450f12;
+}
+
