@@ -1,3 +1,5 @@
+
+
 // Function to add a new education section
 function addEducationSection() {
     // Get the area where all education sections are stored
@@ -43,6 +45,19 @@ function addEducationSection() {
 function generateResume(event:any) {
   event.preventDefault(); // Prevent the default form submission
 
+  //get the image data from user input and display in cv
+  const imageInput = document.getElementById('image') as HTMLInputElement;
+const profilePhoto = document.getElementById('profile-photo') as HTMLImageElement;
+
+if (imageInput.files && imageInput.files[0]) {
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    profilePhoto.src = e.target?.result as string;
+  };
+  reader.readAsDataURL(imageInput.files[0]);
+}
+
+
 const generatedResume = document.getElementById('generated-resume') as HTMLFormElement;
   // Get the values from the personal information section
   const fullName = (document.getElementById('full-name') as HTMLInputElement).value;
@@ -76,7 +91,7 @@ const generatedResume = document.getElementById('generated-resume') as HTMLFormE
     `;
     
   });
-
+ 
   // Get the experience fields and populate the experience section
   const experienceSections = document.querySelectorAll('.experience');
   const experienceData = document.getElementById('experience-data') as HTMLElement;
@@ -112,7 +127,6 @@ const generatedResume = document.getElementById('generated-resume') as HTMLFormE
   // Show the generated resume section
   document.getElementById('generated-resume')?.classList.remove('hidden');
 }
-
 // Add an event listener to the form's submit button to generate the resume
 document.getElementById('submit')?.addEventListener('click', generateResume);
 
@@ -121,29 +135,6 @@ document.getElementById('edit-resume')?.addEventListener('click', function () {
   document.getElementById('generated-resume')?.classList.add('hidden');
   window.scrollTo(0, 0); // Scroll to the top of the page
 });
-
-// Function to load and display profile photo in the resume section
-function handleProfilePhotoUpload(event: Event) {
-  const input = event.target as HTMLInputElement;
-  const resumePhoto = document.getElementById('profile-photo') as HTMLImageElement;
-
-  if (input.files && input.files[0]) {
-    const reader = new FileReader();
-    
-    reader.onload = function(e) {
-      if (e.target) {
-        resumePhoto.src = e.target.result as string; // Set the uploaded image source
-      }
-    };
-
-    reader.readAsDataURL(input.files[0]); // Read the image file as Data URL
-  }
-}
-
-// Add event listener to the image input field to handle photo upload
-document.getElementById('image')?.addEventListener('change', handleProfilePhotoUpload);
-
-
 
 // Declare html2pdf to avoid type errors in TypeScript
 declare const html2pdf: any;

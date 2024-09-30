@@ -1,4 +1,4 @@
-var _a, _b, _c, _d, _e, _f;
+var _a, _b, _c, _d, _e;
 // Function to add a new education section
 function addEducationSection() {
     // Get the area where all education sections are stored
@@ -35,6 +35,17 @@ function addExperienceSection() {
 function generateResume(event) {
     var _a;
     event.preventDefault(); // Prevent the default form submission
+    //get the image data from user input and display in cv
+    var imageInput = document.getElementById('image');
+    var profilePhoto = document.getElementById('profile-photo');
+    if (imageInput.files && imageInput.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            var _a;
+            profilePhoto.src = (_a = e.target) === null || _a === void 0 ? void 0 : _a.result;
+        };
+        reader.readAsDataURL(imageInput.files[0]);
+    }
     var generatedResume = document.getElementById('generated-resume');
     // Get the values from the personal information section
     var fullName = document.getElementById('full-name').value;
@@ -89,22 +100,6 @@ function generateResume(event) {
     (_a = document.getElementById('generated-resume')) === null || _a === void 0 ? void 0 : _a.classList.add('hidden');
     window.scrollTo(0, 0); // Scroll to the top of the page
 });
-// Function to load and display profile photo in the resume section
-function handleProfilePhotoUpload(event) {
-    var input = event.target;
-    var resumePhoto = document.getElementById('profile-photo');
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            if (e.target) {
-                resumePhoto.src = e.target.result; // Set the uploaded image source
-            }
-        };
-        reader.readAsDataURL(input.files[0]); // Read the image file as Data URL
-    }
-}
-// Add event listener to the image input field to handle photo upload
-(_e = document.getElementById('image')) === null || _e === void 0 ? void 0 : _e.addEventListener('change', handleProfilePhotoUpload);
 //function to download the resume as PDF file
 function downloadResumeAsPDF() {
     var resumeContent = document.getElementById('resume-content');
@@ -123,7 +118,7 @@ function downloadResumeAsPDF() {
     }
 }
 //add event listener to download pdf button
-(_f = document.getElementById('download-pdf')) === null || _f === void 0 ? void 0 : _f.addEventListener('click', function (event) {
+(_e = document.getElementById('download-pdf')) === null || _e === void 0 ? void 0 : _e.addEventListener('click', function (event) {
     event.preventDefault();
     downloadResumeAsPDF();
 });
